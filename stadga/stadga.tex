@@ -1,0 +1,53 @@
+\documentclass[11pt, includeaddress]{classes/olbruket}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{verbatimbox}
+
+\titleformat{\paragraph}[hang]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{2.25ex plus 1ex minus 0.2ex}{0.5em}
+\titlespacing*{\section}{0pt}{2.25ex plus 1ex minus 0.2ex}{0.5em}
+\titlespacing*{\subsection}{0pt}{2.25ex plus 1ex minus 0.2ex}{0.5em}
+\titlespacing*{\subsubsection}{0pt}{2.25ex plus 1ex minus 0.2ex}{0.5em}
+
+
+
+\titlelabel{\S \thetitle\quad}
+
+
+\graphicspath{ {images/} }
+
+\begin{document}
+
+\title{Stadga}
+\approved{2017--04--12}
+\revisioned{2018--04--11}
+\maketitle
+
+\thispagestyle{empty}
+
+\newpage
+
+\makeheadfoot%
+
+%Rubriksnivådjup
+\setcounter{tocdepth}{2}
+%Sidnumreringsstart
+\setcounter{page}{1}
+\tableofcontents
+
+\newpage
+
+\input{stadga/allmant.tex} % Allmänt
+\newpage
+\input{stadga/styrelse.tex} % Styrelse
+\newpage
+\input{stadga/medlemmar.tex} % Medlemmar
+\newpage
+\input{stadga/arsmote.tex} % Årsmöte
+\newpage
+\input{stadga/revision.tex} % Revision och ansvarsfrihet
+\newpage
+\input{stadga/upplosning.tex} % Föreningens upplösning
+\newpage
+
+\end{document}
