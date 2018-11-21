@@ -1,4 +1,5 @@
-% Modified by Mikael Lönn
+% Modified by Mikael Lönn & Simon Sundström
+% https://github.com/olbruket/dokument.git
 % Modified by Johan "Horv" Andersson
 % https://github.com/cthit/dokument/blob/master/classes/cthit.cls
 % Original by Adam Sandberg Ericsson
@@ -39,19 +40,19 @@
 
 \definecolor{linkblue}{HTML}{0000ee}
 
-% TODO: makes error
-%\AtBeginDocument{
-%  \hypersetup{
-%    pdftitle = {\@title},
-%    pdfauthor = {\@author},
-%    colorlinks=true,
-%    citecolor=black,
-%    filecolor=black,R
-%    linkcolor=black
-%  }
-%}
 
-\newenvironment{att}{ 
+\AtBeginDocument{
+ \hypersetup{
+   pdftitle = {\@title},
+   pdfauthor = {\@author},
+   colorlinks=true,
+   citecolor=black,
+   filecolor=black,
+   linkcolor=black
+ }
+}
+
+\newenvironment{att}{
   \begin{list}{\small{\textbf{att}}}{}
 }{
   \end{list}
@@ -92,18 +93,18 @@
 }
 
 \DeclareDocumentCommand \maketitle {} {%
-  
+
       \begin{center}
         \vspace*{0.5cm}
 
-                
+
         {\bf\Huge \@title\par}
-  
+
         \vspace{0.2cm}
         \ifdef{\@subtitle}{{\LARGE \@subtitle\par}}{}
 
         \vspace{0.2cm}
-        
+
         {\Large
         \textbf{\OLBRUKETFULL{}{}}} \\
         \textbf{En del av Chalmers studentkår}
@@ -111,31 +112,31 @@
         \vspace{2cm}
         \centerline{ \includegraphics[width=0.5\textwidth]{olbruket-logo.eps}}
         \vspace{2cm}
-        
+
         \Large
 
         \ifincludeauthors
           \ifdef{\@authors}{{\@authors}}{}
           \vspace{2cm}
         \fi
-        
+
         \ifdef{\@approved}{{Antagen: \@approved \\}}{}
         \ifdef{\@revisioned}{{Reviderad: \@revisioned}}{}
         \ifdef{\@editorial}{{Redaktionell revidering: \@editorial}}{}
-        
-        
+
+
     \end{center}
 }
 
 
 \DeclareDocumentCommand \makesimpletitle {} {%
-  
+
     \begin{center}
         \vspace*{0.5cm}
 
-                
+
         {\bf\Huge \@title\par}
-  
+
         \vspace{0.2cm}
         \ifdef{\@subtitle}{{\LARGE \@subtitle\par}}{}
 
@@ -152,7 +153,7 @@
 \DeclareDocumentCommand \makehf {}{%
   \pagestyle{fancy}
   \fancyhf{}
-  
+
   \newcommand{\headleft}{%
     \raisebox{-3mm}{\includegraphics[width=16mm]{olbruket-logo}}\hspace{1mm}
     \parbox[b]{12cm}{%
@@ -169,16 +170,16 @@
     \fi
     \ifdef{\@revisioned}{{\@revisioned}}{}
   }
-  
+
   % Calculate header height
   \settototalheight\headheight{\headleft}
   \addtolength\headheight{1.0pt}
-  
+
   \lhead{\headleft}
 
     \rhead{\headright}
 
-  
+
   \renewcommand{\headrule}{
     \nointerlineskip
     \hskip 16mm\hrulefill
@@ -187,13 +188,13 @@
   \renewcommand{\footrulewidth}{\headrulewidth}
 
   \ifincludeaddress
-  
+
     \lfoot{%
       \flushleft \OLBRUKETFULL{}{}\\
       Teknologgården 2\\
       412 58 Göteborg
     }
-    
+
     \rfoot{%
       \begin{flushright}
         \href{mailto:styrelse@olbruket.se}{styrelse@olbruket.se}\\
